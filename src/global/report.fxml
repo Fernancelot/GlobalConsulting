@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="global.ReportController"
+            prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css">
+    <center>
+        <TableView prefHeight="600" prefWidth="200" fx:id="tableView">
+            <columns>
+                <TableColumn prefWidth="200" text="Appointment Type">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="planningType" />
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn prefWidth="250" text="Appointment Monthly">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="month" />
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn prefWidth="150" text="Appointment Count">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="count" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </center>
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Go To">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#goToAppointments" text="Appointments" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToCustomer" text="Customer" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Reports">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#goToAppReport" text="Appointments" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToReport" text="Customer" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToSummaryReport" text="Customer Summary (3rd Report)" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" fx:id="userLoggedIn" text="Welcome"/>
+            </menus>
+        </MenuBar>
+    </top>
+</BorderPane>
